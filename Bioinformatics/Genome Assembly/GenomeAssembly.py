@@ -76,7 +76,7 @@ def find_contigs(nodes, edges):
     return paths
 
 
-def print_configs(paths):
+def print_contigs(paths):
     contigs = []
     for path in paths:
         contig = path[0]
@@ -99,7 +99,7 @@ def main(fPath):
     kmers = read_kmers(fPath)
     nodes, edges = construct_de_Bruijn_graph(kmers)
     paths = find_contigs(nodes, edges)
-    print_configs(paths)
+    print_contigs(paths)
 
 
 if __name__ == '__main__':
