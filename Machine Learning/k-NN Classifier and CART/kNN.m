@@ -1,8 +1,10 @@
+
 function kNN(distance, training ,validation, k, plot_title)
-S = cov(cat(1,training.sample,validation.sample));
+S = cov(training.sample);
 for i=1:length(validation.sample)
     for j=1:length(training.sample)
-         distances(i,j) = kernel_estimator(distance,training.sample(j,:)-validation.sample(i,:),S);
+         u = training.sample(j,:)-validation.sample(i,:);         
+         distances(i,j) = kernel_estimator(distance,u, S);
     end
 end
 

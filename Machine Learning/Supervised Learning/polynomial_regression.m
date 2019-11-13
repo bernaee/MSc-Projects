@@ -1,6 +1,6 @@
 function [model, lse, actual_curve_lse] = polynomial_regression(x,y,var,degree)
 sample = length(x);
-actual_curve = x.^3 - x + 1
+actual_curve = x.^3 - x + 1;
 for i=1:degree+1
     for j=1:degree+1
         for k=1:sample
@@ -31,8 +31,8 @@ for j=1:sample
     model(j,:) = sum;
 end
 
-lse = sample * log(sqrt(2*pi*(var^2))) + (1/( 2*(var^2))) * mean((y-model).^2);
-actual_curve_lse = sample * log(sqrt(2*pi*(var^2))) + (1/( 2*(var^2))) * mean((actual_curve-model).^2);
+lse = mean((y-model).^2); %sample * log(sqrt(2*pi*(var^2))) + (1/( 2*(var^2))) * mean((y-model).^2);
+actual_curve_lse =  mean((actual_curve-model).^2);% sample * log(sqrt(2*pi*(var^2))) + (1/( 2*(var^2))) * mean((actual_curve-model).^2);
 
 end
 

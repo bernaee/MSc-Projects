@@ -18,7 +18,7 @@ else
             end
         end
         node.split = best_split;
-        [node_left, node_right] = split( best_split, training );
+        [node_left, node_right] = split(best_split, training);
         node.left = build_tree(node_left, threshold );
         node.right = build_tree(node_right, threshold );         
     else

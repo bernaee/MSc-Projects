@@ -4,15 +4,18 @@ x_t = data(:,1:3);
 x_r= data(:,4);
 
 [training_labels,class_0,class_1,training_0,training_1,validation_0,validation_1] = split_train_validation_data(x_t,x_r);
+
 plot3(class_0(:,1),class_0(:,2),class_0(:,3),'+',class_1(:,1),class_1(:,2),class_1(:,3),'*');
 title('Scatter Plot of Classes');
 legend('class_0','class_1');
 saveas(gcf,'plot_1','png');
+
 [mean_0,cov_0]= calc_class_params(training_0);
 prior_0 = length(training_labels (training_labels == 0,:))/length(training_labels );
 [mean_1,cov_1] =calc_class_params(training_1);
 prior_1 = length(training_labels (training_labels == 1,:))/length(training_labels );
 cov= prior_0*cov_0 + prior_1*cov_1;
+
 display('Quadratic Discriminant')
 prediction('quadratic',validation_0,validation_1,mean_0,cov_0,prior_0,mean_1,cov_1,prior_1);
 display('Linear Discriminant')

@@ -1,6 +1,6 @@
 function run_svm_examples(data, plot_title)
-[training,validation] = split_train_validation_data(data)
-[training,validation] = scale(training,validation)
+[training,validation] = split_train_validation_data(data);
+[training,validation] = scale(training,validation);
 display('Linear Kernel')
 [best_cost_0,best_gamma_0]=svm(training,validation,[-5,-4,-3,-2,-1,0,1,2,3,4,5] ,[0], 0,plot_title)
 display('Polynomial Kernel')
