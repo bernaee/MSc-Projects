@@ -1,1 +1,1 @@
-# MSc
+# MSc Course Projects
